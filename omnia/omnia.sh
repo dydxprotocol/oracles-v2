@@ -42,6 +42,7 @@ initEnv () {
   	echo ""
   	echo "ETHEREUM"
   	[[ $OMNIA_MODE == "RELAYER" ]] && echo "Network:                           $ETH_RPC_URL"
+  	[[ $OMNIA_MODE == "RELAYER" ]] && echo "Network(SEND):                     $ETH_RPC_SEND_URL"
 	echo "Ethereum account:                  $ETH_FROM"
 	echo ""
 	echo "SCUTTLEBOT"

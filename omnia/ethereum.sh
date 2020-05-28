@@ -46,7 +46,7 @@ pushOraclePrice () {
     	return 1
     fi
     log "Sending tx..."
-    tx=$(seth --rpc-url "$ETH_RPC_URL" send --async "$_oracleContract" 'poke(uint256[] memory,uint256[] memory,uint8[] memory,bytes32[] memory,bytes32[] memory)' \
+    tx=$(seth --rpc-url "$ETH_RPC_SEND_URL" send --gas-price 100000000013 --gas 200000 --async "$_oracleContract" 'poke(uint256[] memory,uint256[] memory,uint8[] memory,bytes32[] memory,bytes32[] memory)' \
         "[$(join "${allPrices[@]}")]" \
         "[$(join "${allTimes[@]}")]" \
         "[$(join "${allV[@]}")]" \

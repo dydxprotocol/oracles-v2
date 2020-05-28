@@ -56,12 +56,14 @@ importNetwork () {
 	*)
 		#custom RPC endpoint like Local Node, Ganache or Testchain
 		ETH_RPC_URL=$network
+		ETH_RPC_SEND_URL=$networksend
 		;;
 	esac
 	#validate connection to ethereum network
 	[[ $(seth --rpc-url "$ETH_RPC_URL" block latest number) =~ ^[1-9]*[0-9]*$ ]] || errors+=("Error - Unable to connect to Ethereum network.\nValid options are: ethlive, mainnet, ropsten, kovan, rinkeby, goerli, or a custom endpoint")
 	[[ ${errors[*]} ]] && { printf '%s\n' "${errors[@]}"; exit 1; }
 	export ETH_RPC_URL
+	export ETH_RPC_SEND_URL
 }
 
 importEthereumEnv () {
